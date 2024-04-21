@@ -170,7 +170,7 @@ export const comment = (() => {
         inner.innerHTML = `
         <label for="form-inner-${id}" class="form-label">Reply</label>
         <textarea class="form-control shadow-sm rounded-3 mb-2 font2-biasa" id="form-inner-${id}" placeholder="Type reply comment"></textarea>
-        <div class="d-flex flex-wrap justify-content-end align-items-center mb-0">
+        <div class="d-flex flex-wrap justify-content-end align-items-center mb-0 font2-biasa">
             <button style="font-size: 0.8rem;" onclick="comment.cancel('${id}')" class="btn btn-sm btn-outline-dark rounded-3 py-0 me-1">Cancel</button>
             <button style="font-size: 0.8rem;" onclick="comment.send(this)" data-uuid="${id}" class="btn btn-sm btn-outline-dark rounded-3 py-0">Send</button>
         </div>`;
@@ -200,14 +200,14 @@ export const comment = (() => {
             inner.innerHTML = `
             <label for="form-inner-${id}" class="form-label">Edit</label>
             ${document.getElementById(id).getAttribute('data-parent') === 'true' ? `
-            <select class="form-select shadow-sm mb-2" id="form-inner-presence-${id}">
+            <select class="form-select shadow-sm mb-2 font2-biasa" id="form-inner-presence-${id}">
                 <option value="1" ${status.data.presence ? 'selected' : ''}>Hadir</option>
                 <option value="2" ${status.data.presence ? '' : 'selected'}>Berhalangan</option>
             </select>` : ''}
             <textarea class="form-control shadow-sm rounded-3 mb-2 font2-biasa" id="form-inner-${id}" placeholder="Type update comment"></textarea>
-            <div class="d-flex flex-wrap justify-content-end align-items-center mb-0">
-                <button style="font-size: 0.8rem;" onclick="comment.cancel('${id}')" class="btn btn-sm btn-outline-dark rounded-3 py-0 me-1">Cancel</button>
-                <button style="font-size: 0.8rem;" onclick="comment.update(this)" data-uuid="${id}" class="btn btn-sm btn-outline-dark rounded-3 py-0">Update</button>
+            <div class="d-flex flex-wrap justify-content-end align-items-center mb-0 font2-biasa">
+                <button style="font-size: 0.8rem;" onclick="comment.cancel('${id}')" class="btn btn-sm btn-outline-light rounded-3 py-0 me-1">Cancel</button>
+                <button style="font-size: 0.8rem;" onclick="comment.update(this)" data-uuid="${id}" class="btn btn-sm btn-outline-light rounded-3 py-0">Update</button>
             </div>`;
 
             document.getElementById(`button-${id}`).insertAdjacentElement('afterend', inner);
@@ -231,7 +231,7 @@ export const comment = (() => {
                 pagination.setResultData(res.data.length);
 
                 if (res.data.length === 0) {
-                    comments.innerHTML = `<div class="h6 text-center fw-bold p-4 my-3 rounded-4 shadow">Yuk bagikan undangan ini biar banyak komentarnya</div>`;
+                    comments.innerHTML = `<div class="h6 text-center fw-bold p-4 my-3 rounded-4 shadow font2-biasa">Yuk bagikan undangan ini biar banyak komentarnya</div>`;
                     return;
                 }
 
